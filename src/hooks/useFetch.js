@@ -11,6 +11,7 @@ const useFetch = (url) => {
             try {
 
                 const res = await fetch(url, {
+                    credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${token}`,

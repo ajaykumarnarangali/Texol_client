@@ -23,6 +23,7 @@ function Feedback() {
         try {
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/feedback`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
