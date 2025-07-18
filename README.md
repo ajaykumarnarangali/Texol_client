@@ -1,12 +1,52 @@
-# React + Vite
+# Quiz App Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the Quiz App built using React. It includes protected routes, login, result tracking, and user dashboard features.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User Authentication (Login, Logout)
+- Protected Routes with React Router
+- Save and View Quiz Results
+- Token-based Authorization
+- Responsive UI
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- React Router
+- Tailwind CSS (or your CSS framework)
+- Vite (for faster builds)
+- Context API (for Auth handling)
+
+## 📂 Project Structure
+
+src/
+├── components/
+├── context/ # Auth context
+├── layouts/ # Main layout
+├── pages/ # Login, Register, Home, etc.
+├── route/ # ProtectedRoute and PublicRoute
+|__ hooks/ # custom hooks
+└── utis/ # API service functions and validation functions
+
+
+## 🔧 Setup Instructions
+
+1. **Clone the repo**
+
+```bash
+git clone git url (get from this repo)
+cd quiz-app-frontend
+npm install
+
+2. **Set environment variables** 
+
+Create a .env file in the root with:
+VITE_API_URL=http://localhost:3000(server base url)
+
+3. **Start the development server**
+
+npm run dev
+
+
+
