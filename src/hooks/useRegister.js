@@ -18,7 +18,6 @@ const useRegister = () => {
             });
             const result = await res.json();
             if (result.success == false) {
-                console.log(result.message);
                 setError(result.message);
                 return;
             }

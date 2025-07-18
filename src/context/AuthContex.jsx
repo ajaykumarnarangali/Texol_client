@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
                     await fetchUser(newToken, setUser);
                 }
             } catch (err) {
-                console.error("Auth Init Failed", err);
+                // console.error("Auth Init Failed", err);
             } finally {
                 setLoading(false);
             }

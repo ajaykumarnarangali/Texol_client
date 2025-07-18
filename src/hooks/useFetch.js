@@ -26,10 +26,9 @@ const useFetch = (url) => {
                 if (json.success == false) {
                     setError(json.message)
                 }
-                console.log(json);
                 setData(json.questions);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
                 setError(err.message);
             }
         };

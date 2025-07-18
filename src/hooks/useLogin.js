@@ -17,9 +17,7 @@ const useLogin = () => {
                 headers: { 'Content-Type': 'application/json' },
             });
             const result = await res.json();
-            console.log(result,'20');
             if (result?.success == false) {
-                console.log(result.message);
                 setError(result.message);
                 return;
             }
