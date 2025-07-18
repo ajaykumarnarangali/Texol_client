@@ -5,6 +5,8 @@ import useFetch from '../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 import { saveTestResult } from '../utils/saveTestResult'
 import { useAuth } from '../context/AuthContex';
+import clsx from 'clsx';
+
 
 function Home() {
 
@@ -76,8 +78,14 @@ function Home() {
           <div className='py-4 grid grid-cols-5 md:grid-cols-4 md:grid-rows-3 gap-2'>
             {
               Array(10).fill(0).map((_, i) => (
-                <div key={i} className={`w-14 h-11 bg-selectBtn border ${currentQn == i ? 'bg-gray-300' : ''} border-selectedBtn rounded-md cursor-pointer flex justify-center items-center shadow-lg font-poppins text-sm`}
-                  onClick={() => { handleCurrentPage(i) }}>
+                <div
+                  key={i}
+                  className={clsx(
+                    'w-14 h-11 bg-selectBtn border border-selectedBtn rounded-md cursor-pointer flex justify-center items-center shadow-lg font-poppins text-sm',
+                    currentQn === i && 'bg-gray-300'
+                  )}
+                  onClick={() => handleCurrentPage(i)}
+                >
                   {i + 1}
                 </div>
               ))
