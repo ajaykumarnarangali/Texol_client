@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 function Result() {
 
   const [result, setResult] = useState(localStorage.getItem('result') || '0')
+  const [id, setId] = useState(localStorage.getItem('id') || '847233')
 
   return (
     <div className="h-full flex flex-col items-center justify-center px-4">
@@ -24,7 +25,7 @@ function Result() {
           </span>
         </div>
         <div className="mt-4 bg-buttonColor text-white font-semibold px-6 py-2 rounded-md text-lg">
-          Your ID : 
+          Your ID : {id}
         </div>
       </div>
 

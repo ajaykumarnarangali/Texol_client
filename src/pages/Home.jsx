@@ -1,12 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Question from '../components/Question';
 import ProgressBar from '../components/Progressbar';
 import useFetch from '../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
+import { saveTestResult } from '../utils/saveTestResult'
+import { useAuth } from '../context/AuthContex';
 
 function Home() {
 
   const navigate = useNavigate();
+
+  const { token } = useAuth();
 
   const url = `${import.meta.env.VITE_API_URL}/api/qns/get-questions`
   const [isOpen, setisOpen] = useState(true);
@@ -31,15 +35,35 @@ function Home() {
 
   //storing data in back end localstorage for showing total
   //calculating total score
-  const handleScore = () => {
+  const handleScore = async () => {
     let score = 0;
+    const answers = [];
     questions.forEach((qn, i) => {
       const selected = selectedAns[i];
       const correct = qn.answers.find(ans => ans.value === selected && ans.isTrue);
-      if (correct) score += 5;
+      if (correct) {
+        score += 5;
+      }
+
+      answers.push({
+        questionId: qn._id,
+        selectedAnswer: selected,
+        isCorrect: correct?.isTrue ? true : false
+      });
+
     });
     localStorage.setItem('result', score);
-    navigate('/result')
+    const id = Math.floor(100000 + Math.random() * 900000);
+    localStorage.setItem('id', id);
+    const payLoad = {
+      score,
+      completedAt: Date.now(),
+      answers
+    }
+    const success = await saveTestResult(payLoad, token);
+    if (success) {
+      navigate('/result')
+    }
   };
 
   return (

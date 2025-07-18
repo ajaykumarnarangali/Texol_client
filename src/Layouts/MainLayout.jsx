@@ -9,8 +9,10 @@ function MainLayout() {
 
     const handleLogout = async () => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/log-out`);
-            const data=await res.json()
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/log-out`, {
+                credentials: 'include'
+            });
+            const data = await res.json()
             if (data.success) {
                 clear();
                 navigate('/sign-in')
