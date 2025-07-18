@@ -21,8 +21,8 @@ function App() {
           <MainLayout />
         </PublicRoute>}>
           <Route index element={<Onboard />} />
-          <Route path='sign-up' element={<Register />} />
-          <Route path='sign-in' element={<Login />} />
+          <Route path='/sign-up' element={<Register />} />
+          <Route path='/sign-in' element={<Login />} />
         </Route>
 
         {/* protected route for authenticated people*/}
@@ -31,8 +31,8 @@ function App() {
             <MainLayout />
           </ProtectedRoute>
         }>
-          <Route path='home' element={<Home />} />
-          <Route path='result' element={<Result />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/result' element={<Result />} />
         </Route>
 
         {/* accessing non existing route*/}
