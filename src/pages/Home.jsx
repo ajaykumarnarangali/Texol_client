@@ -80,10 +80,10 @@ function Home() {
               Array(10).fill(0).map((_, i) => (
                 <div
                   key={i}
-                  className={clsx(
-                    'w-14 h-11 bg-selectBtn border border-selectedBtn rounded-md cursor-pointer flex justify-center items-center shadow-lg font-poppins text-sm',
-                    currentQn === i && 'bg-gray-300'
-                  )}
+                  className=
+                  {`w-14 h-11 bg-selectBtn border border-selectedBtn rounded-md cursor-pointer flex justify-center items-center shadow-lg font-poppins text-sm',
+                    ${currentQn === i ? 'bg-green-300' : ''}`}
+
                   onClick={() => handleCurrentPage(i)}
                 >
                   {i + 1}
