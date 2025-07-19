@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContex';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Feedback() {
 
@@ -32,6 +33,7 @@ function Feedback() {
             });
             const data = await res.json();
             if (data.success) {
+                toast.success('thankyou for you feedback');
                 navigate('/home')
             }
         } catch (err) {

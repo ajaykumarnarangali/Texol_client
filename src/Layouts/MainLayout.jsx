@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from 'react-router-dom'
 import Logo from '/logo.png'
 import { useAuth } from '../context/AuthContex'
+import { toast } from 'react-toastify';
 
 function MainLayout() {
 
@@ -15,6 +16,7 @@ function MainLayout() {
             const data = await res.json()
             if (data.success) {
                 clear();
+                toast.success('logged out successfully');
                 navigate('/sign-in')
             }
         } catch (err) {

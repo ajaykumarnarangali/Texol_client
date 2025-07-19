@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom"
+import { ToastContainer } from 'react-toastify';
 
 import MainLayout from "./Layouts/MainLayout"
 import NotFound from "./pages/NotFound"
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <Routes>
         {/* if people logged in no need to goto this*/}
         <Route element={<PublicRoute>

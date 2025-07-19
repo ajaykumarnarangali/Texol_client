@@ -5,6 +5,7 @@ import useFetch from '../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 import { saveTestResult } from '../utils/saveTestResult'
 import { useAuth } from '../context/AuthContex';
+import { toast } from 'react-toastify';
 
 function Home() {
 
@@ -62,10 +63,10 @@ function Home() {
     }
     const success = await saveTestResult(payLoad, token);
     if (success) {
+      toast.success('quiz completed successfully');
       navigate('/result')
     }
   };
-  console.log(currentQn);
 
   return (
     <div className='w-full min-h-screen md:h-full flex flex-col md:flex-row  font-poppins'>
