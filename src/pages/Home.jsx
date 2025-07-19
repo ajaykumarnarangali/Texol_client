@@ -5,8 +5,6 @@ import useFetch from '../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 import { saveTestResult } from '../utils/saveTestResult'
 import { useAuth } from '../context/AuthContex';
-import clsx from 'clsx';
-
 
 function Home() {
 
@@ -67,6 +65,7 @@ function Home() {
       navigate('/result')
     }
   };
+  console.log(currentQn);
 
   return (
     <div className='w-full min-h-screen md:h-full flex flex-col md:flex-row  font-poppins'>
@@ -82,7 +81,7 @@ function Home() {
                   key={i}
                   className=
                   {`w-14 h-11 bg-selectBtn border border-selectedBtn rounded-md cursor-pointer flex justify-center items-center shadow-lg font-poppins text-sm',
-                    ${currentQn === i ? 'bg-gray-300' : ''}`}
+                    ${currentQn === i ? 'bg-gray-500' : ''}`}
 
                   onClick={() => handleCurrentPage(i)}
                 >
